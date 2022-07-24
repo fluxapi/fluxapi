@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  packages:
+    image: node:16-slim
+    command: bash -c "cd /workspace && npm install -g pnpm && pnpm run --filter './packages/*' -r --parallel dev"
+    expose:
+      - '8081'
+      - '8080'
+    volumes:
+      - ./:/workspace/
